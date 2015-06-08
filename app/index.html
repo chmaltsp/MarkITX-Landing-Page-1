@@ -199,8 +199,9 @@ Switch</b>
     </div>
     <div class="container footer">
         <div class="row">
-                <div class="col-md-10 col-md-offset-1 text-center">
-            <p>Have any questions or feedback? Let us know at <b>cdw@markITx.com</b> or contact your rep at CDW.For more information, visit <b>markITx.com</b></p>
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <p>Have any questions or feedback? Let us know at <b>cdw@markITx.com</b> or contact your rep at CDW.For more information, visit <b>markITx.com</b>
+                </p>
             </div>
         </div>
     </div>
@@ -208,21 +209,27 @@ Switch</b>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function (b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function () {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = '//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X');
-        ga('send', 'pageview');
+    <script type="text/javascript">
+        window.analytics = window.analytics || [], window.analytics.methods = ["identify", "group", "track", "page", "pageview", "alias", "ready", "on", "once", "off", "trackLink", "trackForm", "trackClick", "trackSubmit"], window.analytics.factory = function (t) {
+            return function () {
+                var a = Array.prototype.slice.call(arguments);
+                return a.unshift(t), window.analytics.push(a), window.analytics
+            }
+        };
+        for (var i = 0; i < window.analytics.methods.length; i++) {
+            var key = window.analytics.methods[i];
+            window.analytics[key] = window.analytics.factory(key)
+        }
+        window.analytics.load = function (t) {
+                if (!document.getElementById("analytics-js")) {
+                    var a = document.createElement("script");
+                    a.type = "text/javascript", a.id = "analytics-js", a.async = !0, a.src = ("https:" === document.location.protocol ? "https://" : "http://") + "cdn.segment.io/analytics.js/v1/" + t + "/analytics.min.js";
+                    var n = document.getElementsByTagName("script")[0];
+                    n.parentNode.insertBefore(a, n)
+                }
+            }, window.analytics.SNIPPET_VERSION = "2.0.9",
+            window.analytics.load("jhx5fnryyk");
+        window.analytics.page();
     </script>
 
     <!-- build:js scripts/vendor.js -->
